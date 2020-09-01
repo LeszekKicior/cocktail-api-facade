@@ -27,7 +27,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config)
+        return this.request(url, config).then(result => result.drinks && result.drinks.map(this.parseDrink))
     }
 
     lookupCocktail(id) {
@@ -35,7 +35,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config)
+        return this.request(url, config).then(result => this.parseDrink(result.drinks[0]))
     }
 
     searchIngredient(name) {
@@ -43,7 +43,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config)
+        return this.request(url, config).then(result => result.ingredients && result.ingredients.map(this.parseIngredient))
     }
 
     lookupIngredient(id) {
@@ -51,7 +51,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config)
+        return this.request(url, config).then(result => this.parseIngredient(result.ingredients[0]))
     }
 
     parseDrink(drinkJson) {
@@ -68,8 +68,21 @@ class CocktailAPI {
             }
         }
         return {
+            id: drinkJson.idDrink,
             name: drinkJson.strDrink,
             ingredients
+        }
+    }
+
+    parseIngredient(ingredientJson) {
+        if(!ingredientJson || !ingredientJson.strIngredient) {
+            return false
+        }
+        return {
+            id: ingredientJson.idIngredient,
+            name: ingredientJson.strIngredient,
+            description: ingredientJson.strDescription,
+            abv: ingredientJson.strAbv
         }
     }
 }
