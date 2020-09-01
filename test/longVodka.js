@@ -1,6 +1,7 @@
 const longVodka = {
     id: '13196',
     name: 'Long vodka',
+    instructions: "Shake a tall glass with ice cubes and Angostura, coating the inside of the glass. Por the vodka onto this, add 1 slice of lime and squeeze juice out of remainder, mix with tonic, stir and voila you have a Long Vodka",
     ingredients: [
         {name: 'Vodka', measure: '5 cl '},
         {name: 'Lime', measure: '1/2 '},
@@ -8,9 +9,10 @@ const longVodka = {
         {name: 'Tonic water', measure: '1 dl Schweppes '},
         {name: 'Ice', measure: '4 '},
     ],
+    thumbnail:  "https://www.thecocktaildb.com/images/media/drink/9179i01503565212.jpg",
 }
 
-const longVodkaJson ={
+const longVodkaJson = {
     "idDrink": "13196",
     "strDrink": "Long vodka",
     "strDrinkAlternate": null,
@@ -67,4 +69,4 @@ const longVodkaJson ={
 }
 
 
-export { longVodka, longVodkaJson }
+export {longVodka, longVodkaJson}

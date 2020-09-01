@@ -14,7 +14,6 @@ describe('API requests', function () {
         });
         it('should return null when no drinks found', function () {
             return api.searchCocktail('test123123').then(data => {
-                console.log(data)
                 expect(data).to.be.an('null')
             })
         });

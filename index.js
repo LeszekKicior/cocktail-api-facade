@@ -70,6 +70,8 @@ class CocktailAPI {
         return {
             id: drinkJson.idDrink,
             name: drinkJson.strDrink,
+            thumbnail: drinkJson.strDrinkThumb,
+            instructions: drinkJson.strInstructions,
             ingredients
         }
     }
