@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch';
+import fetch from 'isomorphic-unfetch'
 
 class CocktailAPI {
     constructor() {
@@ -22,14 +22,58 @@ class CocktailAPI {
         })
     }
 
-    search(name) {
+    searchCocktail(name) {
         let url = `search.php?s=${name}`
         const config = {
             method: 'GET'
         }
         return this.request(url, config)
     }
+
+    lookupCocktail(id) {
+        let url = `lookup.php?i=${id}`
+        const config = {
+            method: 'GET'
+        }
+        return this.request(url, config)
+    }
+
+    searchIngredient(name) {
+        let url = `search.php?i=${name}`
+        const config = {
+            method: 'GET'
+        }
+        return this.request(url, config)
+    }
+
+    lookupIngredient(id) {
+        let url = `search.php?iid=${id}`
+        const config = {
+            method: 'GET'
+        }
+        return this.request(url, config)
+    }
+
+    parseDrink(drinkJson) {
+        let ingredients = []
+        if(!drinkJson || !drinkJson.strDrink){
+            return false
+        }
+        for(let n = 1; n<=15; n++) {
+            if(drinkJson[`strIngredient${n}`]){
+                ingredients.push({
+                    name: drinkJson[`strIngredient${n}`],
+                    measure: drinkJson[`strMeasure${n}`],
+                })
+            }
+        }
+        return {
+            name: drinkJson.strDrink,
+            ingredients
+        }
+    }
 }
 
 const api = new CocktailAPI()
-api.search('margarita').then(data => console.log(data.drinks.map(drink => drink.strDrink)))
+export default api
+
