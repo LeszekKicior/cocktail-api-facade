@@ -84,7 +84,7 @@ class CocktailAPI {
             id: ingredientJson.idIngredient,
             name: ingredientJson.strIngredient,
             description: ingredientJson.strDescription,
-            abv: ingredientJson.strAbv
+            abv: ingredientJson.strABV
         }
     }
 }
