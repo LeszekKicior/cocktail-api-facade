@@ -19,7 +19,7 @@ Then, import in your `.js` file:
 import cocktailApi from 'cocktail-api-facade'
 ```
 
-#Usage
+# Usage
 
 ```js
 import cocktailApi from 'cocktail-api-facade'
@@ -28,7 +28,7 @@ cocktailApi.searchDrink('martini').then(drinks => doStuffWithDrinks())
 cocktailApi.lookupIngredient('12').then(ingredient => doStuffWithIngredient())
 ```
 
-###Tests
+### Tests
 For an array of mocha-based tests, use:
 ```
 npm install
