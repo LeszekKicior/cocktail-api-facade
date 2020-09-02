@@ -35,7 +35,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config).then(result => this.parseDrink(result.drinks[0]))
+        return this.request(url, config).then(result => result.drinks && this.parseDrink(result.drinks[0]))
     }
 
     searchIngredient(name) {
@@ -51,7 +51,7 @@ class CocktailAPI {
         const config = {
             method: 'GET'
         }
-        return this.request(url, config).then(result => this.parseIngredient(result.ingredients[0]))
+        return this.request(url, config).then(result => result.ingredients && this.parseIngredient(result.ingredients[0]))
     }
 
     parseDrink(drinkJson) {
