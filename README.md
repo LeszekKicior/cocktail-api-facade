@@ -27,3 +27,10 @@ import cocktailApi from 'cocktail-api-facade'
 cocktailApi.searchDrink('martini').then(drinks => doStuffWithDrinks())
 cocktailApi.lookupIngredient('12').then(ingredient => doStuffWithIngredient())
 ```
+
+###Tests
+For an array of mocha-based tests, use:
+```
+npm install
+npm run test
+```
